@@ -56,9 +56,6 @@ void Player::update(MusicManager *musicManager) {
     
     if(applyGravity()) musicManager->playSoundEffect(Hurt);
 
-    // std::cout << "X: " << object.x << '\n';
-    // std::cout << "Y: " << object.y << '\n';
-
     move();
     draw();
 }
