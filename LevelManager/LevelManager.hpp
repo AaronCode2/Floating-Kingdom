@@ -8,7 +8,7 @@
 #include "../Classes/Slime.hpp"
 #include "../Classes/Player.hpp"
 #include "Tile.hpp"
-#include "../MusicManager.hpp"
+#include "../MusicManager/MusicManager.hpp"
 
 
 struct LevelManager {
@@ -16,7 +16,7 @@ struct LevelManager {
 
     public:
 
-        int level = 3;
+        int level = 1;
 
         Vector2 playerResetPosition;
 

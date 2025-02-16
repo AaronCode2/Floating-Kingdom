@@ -2,7 +2,7 @@
 #include <raylib.h>
 #include "Classes/Sprite.hpp"
 #include "Classes/Player.hpp"
-#include "MusicManager.hpp"
+#include "MusicManager/MusicManager.hpp"
 #include "LevelManager/LevelManager.hpp"
 
 class Game {

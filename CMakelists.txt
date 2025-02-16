@@ -1,10 +1,12 @@
 cmake_minimum_required(VERSION 3.28)
 
-project(Aaron)
+project(Floating_Kingdom)
 
 include(FetchContent)
 
 set(RAYLIB_VERSION 4.2.0)
+
+# Uses the Internet to get Raylib
 
 FetchContent_Declare(
     raylib
@@ -26,10 +28,10 @@ SOURCE_FILES
     Classes/Slime.cpp
     Classes/Item.cpp 
     Classes/Player.cpp
-    MusicManager.cpp
+    MusicManager/MusicManager.cpp
     LevelManager/LevelManager.cpp
     LevelManager/Tile.cpp
 )
 
-add_executable(Aaron ${SOURCE_FILES})
-target_link_libraries(Aaron raylib)
+add_executable(Floating_Kingdom ${SOURCE_FILES})
+target_link_libraries(Floating_Kingdom raylib)

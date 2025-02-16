@@ -9,7 +9,7 @@
 #include "Slime.hpp"
 #include "../utils.hpp"
 #include "../LevelManager/Tile.hpp"
-#include "../MusicManager.hpp"
+#include "../MusicManager/MusicManager.hpp"
 
 enum Direction {
 
