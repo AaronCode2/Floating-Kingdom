@@ -18,8 +18,7 @@ void Game::GameLoop() {
         BeginDrawing();
         levelManager.clearBackground();
 
-        if(startMainGame) 
-            updateGame();
+        if(startMainGame()) updateGame();
 
         EndDrawing();
     } 
@@ -45,7 +44,41 @@ void Game::updateGame() {
 
 bool Game::startMainGame() {
 
-    
+    time += GetFrameTime();
+
+    float yOffset = sin(time * 2.0) * 25;
+
+    DrawText(
+        "Floating Kingdom", 
+        (GetScreenWidth() / 2) - 400,
+        ((GetScreenHeight() / 3) - 100) + yOffset,
+        100,
+        GOLD
+    );
+
+    Rectangle src = {
+
+        0, 
+        src.height, 
+        (float) playBtn.width / 2,
+        (float) playBtn.height / 2
+    };
+
+    Rectangle dest = {
+
+        340, 
+        280,
+        300,
+        100
+    };
+
+    DrawTexturePro(
+        playBtn,
+        src, dest,
+        {0, 0}, 0, WHITE
+    );
+
+    return false;
 }
 
 Game::~Game() {

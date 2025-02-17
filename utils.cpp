@@ -11,3 +11,6 @@ Vector2 utils::getSize() {
         (GetScreenHeight() / 811.0f) * defaultSize,
     };
 }
+
+void utils::mouseOver(Rectangle object) {
+}

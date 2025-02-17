@@ -1,4 +1,5 @@
 #pragma once
+#include <cmath>
 #include <raylib.h>
 #include "Classes/Sprite.hpp"
 #include "Classes/Player.hpp"
@@ -13,9 +14,13 @@ class Game {
         ~Game();
 
     private:
+       
+        Texture2D playBtn = LoadTexture("../Assets/sprites/Play.png");
 
         LevelManager levelManager;
         MusicManager musicManager;
+
+        float time = 0;
 
         Player player = Player(
             {
