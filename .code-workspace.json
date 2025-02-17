@@ -1,0 +1,15 @@
+{
+    "folders": [
+      { "path": "Assets" },
+      { "path": "build" },
+      { "path": "Classes" },
+      { "path": "LevelManager" },
+      { "path": "MusicManager" }
+    ],
+    "settings": {
+      "editor.fontSize": 14,
+      "files.exclude": {
+        "**/.git": true
+      }
+    }
+}
