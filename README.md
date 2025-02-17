@@ -24,3 +24,9 @@
   - The Assets are CC0
   - This is a Raylib C++ Project
   - You can do anything with this project
+
+  #        Info
+
+  - The Assets are CC0
+  - This is a Raylib C++ Project
+  - You can do anything with this project
