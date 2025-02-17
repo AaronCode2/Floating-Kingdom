@@ -18,3 +18,9 @@
 - To Jump use the W, Up Arrow or even the Space Bar
 - Try to reach the Sign and Hoepful not fall due to Gravity
 - Most Important: Have Fun! 🎮😊
+
+  #        Info
+
+  - The Assets are CC0
+  - This is a Raylib C++ Project
+  - You can do anything with this project
