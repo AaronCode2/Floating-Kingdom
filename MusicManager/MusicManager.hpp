@@ -13,9 +13,9 @@ struct MusicManager {
 
     public:
 
-        void init() {  PlayMusicStream(mainMusic);  };
-        void playMusic() {  UpdateMusicStream(mainMusic);  };
-        void destroy() {  UnloadMusicStream(mainMusic); };
+        void init() { PlayMusicStream(mainMusic); };
+        void playMusic() { UpdateMusicStream(mainMusic); };
+        void destroy() { UnloadMusicStream(mainMusic); };
 
         void playSoundEffect(SoundEffect soundEffect);
 
