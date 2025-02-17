@@ -7,11 +7,9 @@ void App::run() {
 
     InitWindow(1440, 750, "Floating Kingdom");
     InitAudioDevice();
-
     
     MaximizeWindow();
     SetTargetFPS(60);
-
 
     Game 🎮;
 }
