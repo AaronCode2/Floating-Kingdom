@@ -86,6 +86,14 @@ void LevelManager::update(Player *player, MusicManager *musicManager) {
         case 3:
             playerResetPosition = {225, 502};
             break;
+        
+        case 4:
+            
+            DrawText("THANK YOU!", 
+                GetScreenWidth() - 20, GetScreenHeight() - 20, 
+                20, BLACK
+            );
+            break;                                   
     }
 
     player->resetPosition = playerResetPosition;
