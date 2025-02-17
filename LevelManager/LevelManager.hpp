@@ -16,7 +16,7 @@ struct LevelManager {
 
     public:
 
-        int level = 3;
+        int level = 2;
 
         Vector2 playerResetPosition;
 

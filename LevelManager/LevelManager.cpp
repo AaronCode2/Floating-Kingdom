@@ -84,7 +84,7 @@ void LevelManager::update(Player *player, MusicManager *musicManager) {
             break;
         
         case 3:
-            playerResetPosition = {245, 502};
+            playerResetPosition = {225, 502};
             break;
     }
 
