@@ -89,9 +89,10 @@ void LevelManager::update(Player *player, MusicManager *musicManager) {
         
         case 4:
             
-            DrawText("THANK YOU!", 
-                GetScreenWidth() - 20, GetScreenHeight() - 20, 
-                20, BLACK
+            DrawText(
+                "THANK YOU!", 
+                (GetScreenWidth() / 2) - 300, (GetScreenHeight() / 2) - 100, 
+                100, BLACK
             );
             break;                                   
     }

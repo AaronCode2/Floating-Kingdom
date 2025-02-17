@@ -17,7 +17,6 @@ class Game {
         LevelManager levelManager;
         MusicManager musicManager;
 
-
         Player player = Player(
             {
                 325,
@@ -32,4 +31,5 @@ class Game {
 
         void GameLoop();
         void updateGame();
+        bool startMainGame();
 };

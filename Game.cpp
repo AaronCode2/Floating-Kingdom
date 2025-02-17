@@ -16,8 +16,11 @@ void Game::GameLoop() {
     while(!WindowShouldClose()) {
 
         BeginDrawing();
-        ClearBackground(GRAY);
-        updateGame();
+        levelManager.clearBackground();
+
+        if(startMainGame) 
+            updateGame();
+
         EndDrawing();
     } 
     
@@ -27,15 +30,6 @@ void Game::GameLoop() {
 
 void Game::updateGame() {
 
-    levelManager.clearBackground();
-    musicManager.playMusic();
-
-    if(IsKeyDown(KEY_Q)) {
-
-        levelManager.readData();
-        levelManager.makeBackgroundTiles();
-    }
-
     if(IsWindowResized()) {
 
         levelManager.tiles.clear();
@@ -44,15 +38,14 @@ void Game::updateGame() {
         levelManager.readData();
         levelManager.makeBackgroundTiles();
     }
-    
-    if(IsKeyDown(KEY_C)) {
 
-        levelManager.tiles.clear();
-        levelManager.items.clear();
-        levelManager.slimes.clear();
-    }
-
+    musicManager.playMusic();
     levelManager.update(&player, &musicManager);
+}
+
+bool Game::startMainGame() {
+
+    
 }
 
 Game::~Game() {
