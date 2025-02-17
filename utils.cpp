@@ -12,5 +12,10 @@ Vector2 utils::getSize() {
     };
 }
 
-void utils::mouseOver(Rectangle object) {
+bool utils::mouseOver(Rectangle object) {
+
+    if(CheckCollisionPointRec(GetMousePosition(), object))
+        return true;
+
+    return false;
 }

@@ -48,37 +48,46 @@ bool Game::startMainGame() {
 
     float yOffset = sin(time * 2.0) * 25;
 
-    DrawText(
-        "Floating Kingdom", 
-        (GetScreenWidth() / 2) - 400,
-        ((GetScreenHeight() / 3) - 100) + yOffset,
-        100,
-        GOLD
-    );
-
     Rectangle src = {
 
         0, 
-        src.height, 
+        playBtn.height / 2.0f, 
         (float) playBtn.width / 2,
         (float) playBtn.height / 2
     };
 
-    Rectangle dest = {
+    Rectangle object = {
 
-        340, 
-        280,
+        (float) (GetScreenWidth() / 2) - 150, 
+        (float) (GetScreenHeight() / 2),
         300,
         100
     };
 
-    DrawTexturePro(
-        playBtn,
-        src, dest,
-        {0, 0}, 0, WHITE
-    );
+    if(utils::mouseOver(object)) {
+        src.x = src.width;
 
-    return false;
+        if(IsMouseButtonDown(MOUSE_BUTTON_LEFT)) startGame = true;
+    }
+
+    if(!startGame) {
+
+        DrawTexturePro(
+            playBtn,
+            src, object,
+            {0, 0}, 0, WHITE
+        );
+
+        DrawText(
+            "Floating Kingdom", 
+            (GetScreenWidth() / 2) - 400,
+            ((GetScreenHeight() / 3) - 100) + yOffset,
+            100,
+            GOLD
+        );
+    }
+
+    return startGame;
 }
 
 Game::~Game() {

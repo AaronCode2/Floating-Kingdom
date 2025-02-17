@@ -7,5 +7,5 @@ namespace utils {
 
     Vector2 getSize();
 
-    void mouseOver(Rectangle object);
+    bool mouseOver(Rectangle object);
 }
