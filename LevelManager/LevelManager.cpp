@@ -25,8 +25,6 @@ void LevelManager::init() {
 
 void LevelManager::update(Player *player, MusicManager *musicManager) {
 
-    player->resetPosition = playerResetPosition;
-
     for(auto it = items.begin(); it != items.end(); ) {
 
         it->update();
@@ -89,6 +87,9 @@ void LevelManager::update(Player *player, MusicManager *musicManager) {
             playerResetPosition = {245, 502};
             break;
     }
+
+    player->resetPosition = playerResetPosition;
+    player->update(musicManager);
 }
 
 void LevelManager::clearBackground() {

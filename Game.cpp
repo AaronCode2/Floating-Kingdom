@@ -53,7 +53,6 @@ void Game::updateGame() {
     }
 
     levelManager.update(&player, &musicManager);
-    player.update(&musicManager);
 }
 
 Game::~Game() {

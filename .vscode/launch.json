@@ -4,7 +4,7 @@
         "name": "Program",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${workspaceFolder}/build/Aaron.exe",
+        "program": "${workspaceFolder}/build/Floating_Kingdom.exe",
         "args": [],
         "stopAtEntry": false,
         "preLaunchTask": "Cmake",
