@@ -15,5 +15,5 @@
 
 - Use WASD or Arrow keys to move
 - To Jump use the W, Up Arrow or even the Space Bar
-- Try to reach the Sign and Hoepful not fall due to Gravity
+- Try to reach the Sign and Hopeful not fall due to Gravity
 - Most Important: Have Fun! 🎮😊
