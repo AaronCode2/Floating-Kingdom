@@ -36,19 +36,17 @@ struct LevelManager {
     private:
 
         const int adjust = 48;
+        Rectangle object;
 
-        void createItem(
-            float y, float &tileCounter,     
+        void createItem( float &tileCounter,     
             std::string line, size_t x
         );
 
-        void createSlime(
-            float y, float &tileCounter,     
+        void createSlime( float &tileCounter,     
             std::string line, size_t x
         );
 
-        void createTiles(
-            float y, float &tileCounter, 
+        void createTiles( float &tileCounter, 
             std::string line, size_t x
         );
 };

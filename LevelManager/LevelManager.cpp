@@ -117,6 +117,7 @@ void LevelManager::readData() {
         std::cerr << "\033[31mCould Not Open Level File\n\033[0m";
 
     std::string line;
+
     float y = 0.0f;
     float tileCounter = 0.0f;
 
@@ -140,6 +141,14 @@ void LevelManager::readData() {
 
         for(size_t x = 0; x < line.length(); x++) {
 
+            object = {
+
+                tileCounter * utils::getSize().x, 
+                y * utils::getSize().y,
+                utils::getSize().x, 
+                utils::getSize().y 
+            };
+
             switch(line[x]) {
                 
                 case '/': tileCounter++; 
@@ -149,19 +158,22 @@ void LevelManager::readData() {
                 case 'P':
                 case 'S':
 
-                    createTiles(y, tileCounter, line, x);
+                    createTiles( tileCounter, line, x);
+                    tileCounter++;
                     break;
                 
                 case 'p':
                 case 'g':
 
-                    createSlime(y, tileCounter, line, x);
+                    createSlime( tileCounter, line, x);
+                    tileCounter++;
                     break;
 
                 case 'C':
                 case 'F':
 
-                    createItem(y, tileCounter, line, x);
+                    createItem( tileCounter, line, x);
+                    tileCounter++;
                     break;
             }
         } if(line.find('#') == std::string::npos) y++;
@@ -204,123 +216,50 @@ void LevelManager::makeBackgroundTiles() {
 }
 
 void LevelManager::createItem(
-    float y, float &tileCounter,     
+    float &tileCounter,     
     std::string line, size_t x
 ) 
 {
-
-    bool skip = false;
-
-    Rectangle object = {
-
-        tileCounter * utils::getSize().x, 
-        y * utils::getSize().y,
-        utils::getSize().x, 
-        utils::getSize().y 
-    };
 
     if(line[x] == 'F') object.y -= 10;
 
-    for(auto &item : items) {
+    items.push_back(Item(
 
-        if(item.object.x == object.x && item.object.y == object.y) {
-            
-            skip = true;
-            break;
-        }
-    }
-
-    if(!skip) {
-        items.push_back(Item(
-
-            object, 
-            {
-                (float) line[x + 1] - adjust,
-                (float) line[x + 2] - adjust
-            }, 
-            (line[x] == 'F') ? Fruit : Coin
-        ));
-    }
-    
-    tileCounter++;
+        object, 
+        {
+            (float) line[x + 1] - adjust,
+            (float) line[x + 2] - adjust
+        }, 
+        (line[x] == 'F') ? Fruit : Coin
+    ));
 }
 
 void LevelManager::createSlime(
-    float y, float &tileCounter, 
+    float &tileCounter, 
     std::string line, size_t x
 ) 
 {
 
-    bool skip = false;
+    slimes.push_back(Slime(
 
-    Rectangle object = {
-
-        tileCounter * utils::getSize().x, 
-        y * utils::getSize().y,
-        utils::getSize().x, 
-        utils::getSize().y 
-    };
-
-    for(auto &slime : slimes) {
-
-        if(slime.object.x == object.x && slime.object.y == object.y) {
-
-            skip = true;
-            break;
-        }
-    }
-
-    if(!skip) {
-
-        slimes.push_back(Slime(
-
-            object, 
-            (line[x] == 'g') ? Green : Purple 
-        ));
-    }
-
-    tileCounter++;
+        object, 
+        (line[x] == 'g') ? Green : Purple 
+    ));
 }
 
 void LevelManager::createTiles(
-    float y, float &tileCounter, 
+    float &tileCounter, 
     std::string line, size_t x
 ) 
 {
 
-    bool skip = false;
-
-    // Screen Width Default: 1600 Screen Height Default: 811
-
-    Rectangle object = {
-
-        tileCounter * utils::getSize().x, 
-        y * utils::getSize().y,
-        utils::getSize().x, 
-        utils::getSize().y 
-    };
-
-    for(auto &tile : tiles) {
-
-        if(tile.object.x == object.x && tile.object.y == object.y) {
-
-            skip = true;
-            break;
-        }
-    }
-
-    if(!skip) {
-
-        tiles.push_back(PlatFormTile(
-            object, 
-            (line[x] == 'P') ? PlatForm : Tile,
-            {
-                (float) line[x + 1] - adjust,
-                (float) line[x + 2] - adjust,
-            },
-            (line[x] != 'T') ? true : false  
-        ));
-    }
-
-    tileCounter++;
+    tiles.push_back(PlatFormTile(
+        object, 
+        (line[x] == 'P') ? PlatForm : Tile,
+        {
+            (float) line[x + 1] - adjust,
+            (float) line[x + 2] - adjust,
+        },
+        (line[x] != 'T') ? true : false  
+    ));
 }
