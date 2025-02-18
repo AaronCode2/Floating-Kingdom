@@ -4,5 +4,9 @@
 
 namespace App {
     
+    void init();
+
     void run();
+
+    Image logo;
 }

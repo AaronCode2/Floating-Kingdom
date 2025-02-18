@@ -17,7 +17,7 @@ class Game {
     private:
        
         Texture2D playBtn = LoadTexture("../Assets/sprites/Play.png");
-
+              
         LevelManager levelManager;
         MusicManager musicManager;
 
