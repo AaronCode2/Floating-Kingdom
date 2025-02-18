@@ -5,7 +5,7 @@ void App::init() {
     SetConfigFlags(FLAG_WINDOW_ALWAYS_RUN);
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     
-    logo = LoadImage("../Assets/Logo/Logo.png");
+    Image logo = LoadImage("../Assets/Logo/Logo.png");
 
     InitWindow(1440, 750, "Floating Kingdom");
     InitAudioDevice();
