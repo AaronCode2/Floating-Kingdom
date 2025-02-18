@@ -8,10 +8,11 @@ void App::init() {
     Image logo = LoadImage("../Assets/Logo/Logo.png");
 
     InitWindow(1440, 750, "Floating Kingdom");
+
     SetWindowIcon(logo);
     UnloadImage(logo);
-    InitAudioDevice();
 
+    InitAudioDevice();
 
     MaximizeWindow();
     SetTargetFPS(60);
