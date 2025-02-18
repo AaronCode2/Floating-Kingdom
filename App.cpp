@@ -16,7 +16,6 @@ void App::init() {
 
     MaximizeWindow();
     SetTargetFPS(60);
-
 }
 
 void App::run() {
