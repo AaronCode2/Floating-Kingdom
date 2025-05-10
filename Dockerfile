@@ -1,16 +1,15 @@
 FROM ubuntu:latest
 
-# Install required packages
-RUN apt update && apt install -y build-essential cmake
+RUN apt update && apt install -y \
+    build-essential cmake git \
+    libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev \
+    libgl1-mesa-dev libxi-dev
 
-# Set working directory
 WORKDIR /app
-
-# Copy source code into container
 COPY . .
 
-# Create build dir, run cmake & make
+
 RUN mkdir -p build && cd build && cmake .. && make
 
-# Run the compiled binary
+
 CMD ["./build/Floating_Kingdom"]
