@@ -22,5 +22,6 @@
 ## Info
 
 - The Assets are CC0
+- Use the Release Branch for the newer version! 
 - This is a Raylib C++ Project
 - You can do anything with this project
