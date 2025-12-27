@@ -35,3 +35,26 @@ SOURCE_FILES
 
 add_executable(Floating_Kingdom ${SOURCE_FILES})
 target_link_libraries(Floating_Kingdom raylib)
+
+if(WIN32)
+
+    target_sources(Floating_Kingdom PRIVATE Assets/Windows/app.rc)
+    target_link_options(Floating_Kingdom PRIVATE $<$<CONFIG:Release>:-mwindows>)
+elseif(APPLE)
+
+    target_link_options(Floating_Kingdom PRIVATE $<$<CONFIG:Release>:-MACOSX_BUNDLE>)
+endif()
+
+target_compile_definitions(Floating_Kingdom PUBLIC $<$<CONFIG:Debug>:DEBUG_ENABLED>)
+
+if("${PLATFORM}" STREQUAL "Web")
+
+    message(FATAL_ERROR "Do not build in this project in the Web as it doesn't work!")
+endif()
+
+if(APPLE)
+
+    target_link_libraries(${PROJECT_NAME} "-framework IOKit")
+    target_link_libraries(${PROJECT_NAME} "-framework Cocoa")
+    target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
+endif()
