@@ -70,6 +70,8 @@ void Player::activateResetPosition() {
 
 void Player::move() {
 
+    if(IsWindowResized()) return;
+
     object.x += velocity.x;
     checkCollisionX();
 
