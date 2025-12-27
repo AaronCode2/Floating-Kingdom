@@ -111,11 +111,14 @@ void LevelManager::clearBackground() {
 
 void LevelManager::destroy() {
 
+#if !__linux__
     UnloadTexture(PlatFormTile::image[0]);
     UnloadTexture(PlatFormTile::image[1]);
 
     UnloadTexture(Item::image[0]);
     UnloadTexture(Item::image[1]);
+#endif
+
 }
 
 void LevelManager::readData() {

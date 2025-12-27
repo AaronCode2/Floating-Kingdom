@@ -22,8 +22,11 @@ Player::Player(
 
 Player::~Player() {
 
+#if !__linux__
     UnloadTexture(image[0]);
     UnloadTexture(image[1]);
+#endif
+
 }
 
 void Player::update(MusicManager *musicManager) {
@@ -56,7 +59,7 @@ void Player::update(MusicManager *musicManager) {
     if(IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) velocity.x = speed;
     else if(IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) velocity.x = -speed;
     
-    if(applyGravity()) musicManager->playSoundEffect(Hurt);
+    if(applyGravity() && (IsWindowResized() || IsWindowHidden())) musicManager->playSoundEffect(Hurt);
 
     move();
     draw();
@@ -70,7 +73,7 @@ void Player::activateResetPosition() {
 
 void Player::move() {
 
-    if(IsWindowResized()) return;
+    if(IsWindowResized() || IsWindowHidden()) return;
 
     object.x += velocity.x;
     checkCollisionX();
