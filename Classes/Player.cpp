@@ -46,10 +46,12 @@ void Player::update(MusicManager *musicManager) {
     if(jumpKey() && isOnGround) {
 
         musicManager->playSoundEffect(Jump);
-        velocity.y = -30 * (utils::getSize().y / 50);
+        if(IsWindowMaximized())
+            velocity.y = -35;
+        else velocity.y = -35 * (utils::getSize().y / 51);
     }
 
-    const int speed = 5 * (utils::getSize().x / 50); 
+    const float speed = 6.5 * (utils::getSize().x / 51); 
 
     if(IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) velocity.x = speed;
     else if(IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) velocity.x = -speed;
