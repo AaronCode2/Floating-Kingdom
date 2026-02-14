@@ -1,10 +1,10 @@
-# How To Complie
+# How To Compile
 
-## Hopefully you have a **C++ Complier**, **CMake**, **Make**, and **VsCode** installed to work
+## Hopefully you have a **C++ Compiler**, **CMake**, **Make**, and **VsCode** installed to work
 
 1. Download as a Zip or use Git
 2. Open the Project with Vscode and install the C/C++ Extension Pack
-3. It should come with a option of what Complier to use - you may have to reopen VsCode - use the complier that fits you (a GCC is recommended)
+3. It should come with a option of what Compiler to use - you may have to reopen VsCode - use the compiler that fits you (a GCC is recommended)
 
 4. Once done, open the Terminal in this directory or you could use the built-in one in Vscode.
 5. Check if Cmake has created the build file or you have done it wrong ❌
